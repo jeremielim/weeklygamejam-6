@@ -103,6 +103,7 @@
 -define:UNITY_TEAM_LICENSE
 'Assets/Scripts/Locomotion/ClickToMove.cs'
 'Assets/Scripts/Locomotion/FirstPersonAgentController.cs'
+'Assets/Scripts/Locomotion/NavMeshPatroller.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/UnityScript.dll'
