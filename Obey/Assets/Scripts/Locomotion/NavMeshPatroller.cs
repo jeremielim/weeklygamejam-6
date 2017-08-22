@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class NavMeshPatroller : MonoBehaviour
 {
     public List<Vector3> patrolPoints = new List<Vector3>();
-    RaycastHit hitInfo = new RaycastHit();
+    // RaycastHit hitInfo = new RaycastHit();
     protected int pointIndex;
     protected NavMeshAgent agent;
 
