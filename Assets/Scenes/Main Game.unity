@@ -220,7 +220,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food:
-  - {fileID: 1640011190043162, guid: 24e5d349c112f4e12b3c2eb5dd370f4f, type: 2}
+  - {fileID: 1142441291748544, guid: e4aae0e235ed6457fbafb4937aa95f5f, type: 2}
+  - {fileID: 1654637029027108, guid: c7de1863198024265bd31f9cdf2f25d9, type: 2}
+  - {fileID: 1540616390970100, guid: 3f7f36b63f03449b5b62303418006631, type: 2}
 --- !u!195 &540295418
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -371,7 +373,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.20392157, g: 0.18431373, b: 0.17254902, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -436,7 +438,7 @@ GameObject:
   - component: {fileID: 2039594935}
   - component: {fileID: 2039594934}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -455,7 +457,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 554a1287889f942e7b7920455149588b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

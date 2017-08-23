@@ -32,6 +32,9 @@ public class NavMeshPatroller : MonoBehaviour
         {
             RaycastHit hit;
 
+            Quaternion rotation = Quaternion.identity;
+            rotation.eulerAngles = new Vector3(0, Random.Range(-180, 180.0f));
+
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 if (canDropObj)
@@ -39,7 +42,7 @@ public class NavMeshPatroller : MonoBehaviour
                     targetPosition = hit.point;
                     agent.destination = hit.point;
 
-                    Instantiate(food[Random.Range(0, (food.Length - 1))], new Vector3(hit.point.x, 1.0f, hit.point.z), Quaternion.identity);
+                    Instantiate(food[Random.Range(0, (food.Length - 1))], new Vector3(hit.point.x, 0, hit.point.z), rotation);
 
                     canDropObj = false;
                 }
@@ -50,10 +53,5 @@ public class NavMeshPatroller : MonoBehaviour
         {
             canDropObj = true;
         }
-    }
-
-    public bool CanDropObjects()
-    {
-        return canDropObj;
     }
 }
