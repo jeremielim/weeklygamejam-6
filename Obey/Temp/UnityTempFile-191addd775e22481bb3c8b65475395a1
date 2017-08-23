@@ -101,10 +101,11 @@
 -define:UNITY_EDITOR_OSX
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
+'Assets/Scripts/Camera/FollowCam.cs'
+'Assets/Scripts/Consumable.cs'
 'Assets/Scripts/Locomotion/FirstPersonAgentController.cs'
 'Assets/Scripts/Locomotion/NavMeshPatroller.cs'
-'Assets/Scripts/MoveTowards.cs'
-'Assets/Scripts/Push.cs'
+'Assets/Scripts/PlaceObject.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/UnityScript.dll'

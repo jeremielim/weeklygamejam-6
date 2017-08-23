@@ -6,18 +6,22 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class NavMeshPatroller : MonoBehaviour
 {
-    public List<Vector3> patrolPoints = new List<Vector3>();
-    // RaycastHit hitInfo = new RaycastHit();
+
+    public GameObject[] food;
+
+    protected bool canDropObj;
     protected int pointIndex;
     protected NavMeshAgent agent;
+    protected Vector3 targetPosition;
 
     public void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public void Start()
+    void Start()
     {
+        canDropObj = true;
         pointIndex = 0;
     }
 
@@ -30,29 +34,26 @@ public class NavMeshPatroller : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                patrolPoints.Add(hit.point);
+                if (canDropObj)
+                {
+                    targetPosition = hit.point;
+                    agent.destination = hit.point;
+
+                    Instantiate(food[Random.Range(0, (food.Length - 1))], new Vector3(hit.point.x, 1.0f, hit.point.z), Quaternion.identity);
+
+                    canDropObj = false;
+                }
             }
         }
 
-        // check if there are navigable points
-        if (patrolPoints.Count > 0)
+        if (Vector3.Distance(transform.position, targetPosition) < 0.7)
         {
-            // patrol to target
-            PatrolToPoint(pointIndex);
-        }
-
-        // check if object has reached patrol point then move to the next one
-        if (agent.remainingDistance <= 0.0f)
-        {
-            if (pointIndex + 1 < patrolPoints.Count)
-            {
-                pointIndex += 1;
-            }
+            canDropObj = true;
         }
     }
 
-    public void PatrolToPoint(int curIndexPoint)
+    public bool CanDropObjects()
     {
-        agent.destination = patrolPoints[curIndexPoint];
+        return canDropObj;
     }
 }
