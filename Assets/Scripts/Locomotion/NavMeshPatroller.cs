@@ -60,4 +60,9 @@ public class NavMeshPatroller : MonoBehaviour
             canDropObj = true;
         }
     }
+
+    public int LureCount()
+    {
+        return lures;
+    }
 }
