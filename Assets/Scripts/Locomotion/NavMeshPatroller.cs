@@ -8,6 +8,8 @@ public class NavMeshPatroller : MonoBehaviour
 {
 
     public GameObject[] food;
+    public Transform originPoint;
+    public int lures = 4;
 
     protected bool canDropObj;
     protected int pointIndex;
@@ -27,6 +29,10 @@ public class NavMeshPatroller : MonoBehaviour
 
     public void Update()
     {
+        if (canDropObj)
+        {
+            agent.destination = originPoint.position;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -37,13 +43,13 @@ public class NavMeshPatroller : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                if (canDropObj)
+                if (canDropObj && lures > 0)
                 {
                     targetPosition = hit.point;
                     agent.destination = hit.point;
 
                     Instantiate(food[Random.Range(0, (food.Length - 1))], new Vector3(hit.point.x, 0, hit.point.z), rotation);
-
+                    lures -= 1;
                     canDropObj = false;
                 }
             }
